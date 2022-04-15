@@ -1,0 +1,19 @@
+name: CI
+
+on: [commit]
+
+jobs:
+  basic:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        path: ./
+    - name: Build
+      run: go build -o dist/feather
+    - name: Test
+      run: go test -o dist/feather
