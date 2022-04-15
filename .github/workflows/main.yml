@@ -13,6 +13,6 @@ jobs:
       with:
         path: ./
     - name: Build
-      run: go build -o dist/feather
+      run: go build ./dist/...
     - name: Test
-      run: go test -o dist/feather
+      run: go test ./dist/...
